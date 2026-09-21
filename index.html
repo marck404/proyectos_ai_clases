@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taller de inteligencia artificial</title>
+    <meta
+      name="description"
+      content="Landing page del taller de inteligencia artificial para secundaria con actividades creativas y proyectos de alumnos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="logo-placeholder" aria-label="Logo de la escuela">Logo de la escuela</div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Proyecto educativo</p>
+            <h1>Taller de inteligencia artificial</h1>
+            <p class="lead">
+              Exploramos la creatividad, la imaginación y el pensamiento crítico a
+              través de actividades con IA para estudiantes de secundaria.
+            </p>
+          </div>
+        </section>
+
+        <section class="activity-section" aria-label="Actividades del taller">
+          <div class="section-heading">
+            <p class="eyebrow">Actividades</p>
+            <h2>Selecciona una propuesta</h2>
+          </div>
+
+          <div class="activity-grid">
+            <a class="activity-card" href="activities/cuento.html">
+              <div class="card-icon">✍️</div>
+              <div class="card-text">
+                <span class="tag">Actividad 1</span>
+                <h3>Cuento corto</h3>
+                <p>Ideas originales y narrativas creadas por alumnos.</p>
+              </div>
+            </a>
+
+            <a class="activity-card" href="activities/imagenes.html">
+              <div class="card-icon">🎨</div>
+              <div class="card-text">
+                <span class="tag">Actividad 2</span>
+                <h3>Generar Imágenes</h3>
+                <p>Prompts y creatividad visual para producir escenas y personajes.</p>
+              </div>
+            </a>
+
+            <a class="activity-card" href="activities/restaurar.html">
+              <div class="card-icon">🖼️</div>
+              <div class="card-text">
+                <span class="tag">Actividad 3</span>
+                <h3>Restaurar fotos</h3>
+                <p>Reparación digital y mejora de imágenes con herramientas de IA.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <p>© <span id="year"></span> Taller de inteligencia artificial</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
