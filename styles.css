@@ -330,6 +330,68 @@ img {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+.story-list {
+  display: grid;
+  width: min(900px, 100%);
+  gap: 18px;
+  margin-inline: auto;
+}
+
+.story-card {
+  padding: 26px;
+}
+
+.story-header {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.story-emoji {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(103, 217, 255, 0.24);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(103, 217, 255, 0.2), rgba(72, 162, 255, 0.08));
+  font-size: 1.8rem;
+}
+
+.story-heading h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.3;
+}
+
+.story-author {
+  margin: 4px 0 0;
+  color: var(--blue-200);
+  font-size: 0.88rem;
+}
+
+.story-copy {
+  display: grid;
+  max-width: 75ch;
+  gap: 14px;
+  margin-inline: auto;
+}
+
+.story-copy p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.story-copy strong {
+  color: var(--white);
+}
+
 .student-header {
   display: flex;
   justify-content: space-between;
@@ -364,6 +426,65 @@ img {
   object-fit: cover;
   border-radius: 14px;
   border: 1px solid rgba(184, 230, 255, 0.18);
+}
+
+.image-open-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.image-open-button:focus-visible,
+.image-viewer-close:focus-visible {
+  outline: 3px solid var(--cyan-300);
+  outline-offset: 4px;
+}
+
+.image-viewer {
+  position: fixed;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  padding: 44px 16px 16px;
+  overflow: visible;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-deep);
+  box-shadow: var(--shadow);
+}
+
+.image-viewer::backdrop {
+  background: rgba(0, 0, 0, 0.86);
+}
+
+.image-viewer form {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.image-viewer-close {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--white);
+  font: inherit;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.image-viewer-image {
+  display: block;
+  max-width: min(90vw, 1200px);
+  max-height: calc(100vh - 88px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .placeholder-box,
@@ -426,7 +547,21 @@ img {
 }
 
 .before-after::before {
-  content: "Antes / Después";
+  content: none;
+}
+
+.before-after:has(.image-open-button) {
+  min-height: 0;
+  padding: 0;
+  border-style: solid;
+}
+
+.before-after .student-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
 }
 
 .prompt-box {
@@ -458,6 +593,31 @@ img {
     width: min(100% - 18px, 100%);
     padding: 12px 12px 0;
     margin-top: 14px;
+  }
+
+  .story-card {
+    padding: 18px;
+  }
+
+  .story-header {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .story-emoji {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    font-size: 1.5rem;
+  }
+
+  .story-heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .story-header .student-badge {
+    grid-column: 2;
+    justify-self: start;
   }
 
   .hero {

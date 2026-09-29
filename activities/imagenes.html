@@ -35,7 +35,9 @@
               un aire romántico y delicado.
             </p>
             <div class="image-frame" data-label="Imagen del alumno">
-              <img class="student-image" src="../assets/clase02/chica.png" alt="Chica pelirroja estilo dibujo" />
+              <button class="image-open-button" type="button" aria-label="Ampliar imagen de chica pelirroja">
+                <img class="student-image" src="../assets/clase02/chica.png" alt="Chica pelirroja estilo dibujo" />
+              </button>
             </div>
           </article>
 
@@ -50,13 +52,15 @@
               película de Disney y una escena grandiosa de poder y magia.
             </p>
             <div class="image-frame" data-label="Imagen del alumno">
-              <img class="student-image" src="../assets/clase02/fenix.png" alt="Fénix con armas y objetos fantásticos" />
+              <button class="image-open-button" type="button" aria-label="Ampliar imagen de fénix legendario">
+                <img class="student-image" src="../assets/clase02/fenix.png" alt="Fénix con armas y objetos fantásticos" />
+              </button>
             </div>
           </article>
 
           <article class="student-card">
             <div class="student-header">
-              <h3>Escudo de Howard</h3>
+              <h3>Escudo de Hogwarts</h3>
               <span class="student-badge">Heráldica</span>
             </div>
             <p class="meta-text">
@@ -65,11 +69,20 @@
               simbolismo de valentía, sabiduría y tradición.
             </p>
             <div class="image-frame" data-label="Imagen del alumno">
-              <img class="student-image" src="../assets/clase02/howards.png" alt="Escudo de Howard con estilo del primer libro" />
+              <button class="image-open-button" type="button" aria-label="Ampliar imagen del escudo de Hogwarts">
+                <img class="student-image" src="../assets/clase02/howarths.png" alt="Escudo de Hogwarts con estilo del primer libro" />
+              </button>
             </div>
           </article>
         </div>
       </main>
+
+      <dialog class="image-viewer" aria-label="Imagen ampliada">
+        <form method="dialog">
+          <button class="image-viewer-close" aria-label="Cerrar imagen">&times;</button>
+        </form>
+        <img class="image-viewer-image" alt="" />
+      </dialog>
     </div>
 
     <script src="../script.js"></script>

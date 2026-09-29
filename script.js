@@ -24,3 +24,29 @@ revealItems.forEach((item) => {
   item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   observer.observe(item);
 });
+
+const imageViewer = document.querySelector('.image-viewer');
+if (imageViewer) {
+  const viewerImage = imageViewer.querySelector('.image-viewer-image');
+
+  document.querySelectorAll('.image-open-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const image = button.querySelector('.student-image');
+      viewerImage.src = image.src;
+      viewerImage.alt = image.alt;
+      imageViewer.showModal();
+    });
+  });
+
+  imageViewer.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      imageViewer.close();
+    }
+  });
+
+  imageViewer.addEventListener('click', (event) => {
+    if (event.target === imageViewer) {
+      imageViewer.close();
+    }
+  });
+}
