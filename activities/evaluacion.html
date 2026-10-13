@@ -47,7 +47,6 @@
   .hidden { display:none; }
   .shake { animation:shake .4s; }
   @keyframes shake { 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
-  input[type=range] { width:100%; }
   @media (max-width:520px) {
     body { padding:12px; }
     .card { padding:18px; }
@@ -105,8 +104,8 @@ const QUESTIONS = [
     correct:[0,2,4], need:3,
     exp:"Mientras mejor expliquemos nuestra idea, más fácil será para la IA ayudarnos." },
 
-  { type:"slider", tag:"Proceso", q:"Crear con IA es crear → probar → mejorar. ¿Cuántas veces crees que conviene pedir mejoras? Mueve el control a la mejor opción.",
-    labels:["Nunca, acepto el primer resultado","Las veces necesarias hasta que me guste","Una sola vez"], ans:1,
+  { type:"choice", tag:"Proceso", q:"Crear con IA es crear → probar → mejorar. ¿Cuándo conviene pedir mejoras?",
+    opts:["Nunca: hay que aceptar el primer resultado","Las veces necesarias, probando y ajustando hasta lograr lo que buscamos","Solo una vez, aunque el resultado no sea el esperado"], ans:1,
     exp:"No tenemos que aceptar el primer resultado. Construimos poco a poco." },
 
   { type:"code", tag:"Código", q:"Completa el código: ¿qué etiqueta HTML crea un botón?",
@@ -269,7 +268,8 @@ const RENDER = {
     c.firstChild.onclick=()=>{
       if(answered)return;
       let good=0; Q.opts.forEach((_,i)=>{ const should=Q.correct.includes(i), chose=sel.has(i); if(should===chose) good++;
-        wrap.children[i].classList.add(should?"ok":(chose?"bad":"")); });
+        if(should) wrap.children[i].classList.add("ok");
+        else if(chose) wrap.children[i].classList.add("bad"); });
       wrap.querySelectorAll("button").forEach(b=>b.disabled=true);
       finish(Q, good===Q.opts.length?1:Math.max(0,(good-1)/Q.opts.length)*0.5);
     };
@@ -292,12 +292,6 @@ const RENDER = {
     };
   },
 
-  slider(Q, el) {
-    el.innerHTML = `<input type="range" min="0" max="${Q.labels.length-1}" value="0" id="sl"><div class="demo" id="lb"></div><div class="ctl"><button class="primary">Responder</button></div>`;
-    const sl=el.querySelector("#sl"), lb=el.querySelector("#lb");
-    const upd=()=>lb.textContent=Q.labels[sl.value]; sl.oninput=upd; upd();
-    el.querySelector(".ctl button").onclick=()=>{ if(answered)return; sl.disabled=true; finish(Q, +sl.value===Q.ans?1:0); };
-  }
 };
 
 function textAnswer(Q, el, noMargin) {
