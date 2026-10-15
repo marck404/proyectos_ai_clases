@@ -1,0 +1,2 @@
+cd /home/marck404/proyectos_ai_clases
+python3 -m http.server 8000
